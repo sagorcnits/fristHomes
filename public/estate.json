@@ -8,7 +8,7 @@
     "price": "$15000",
     "status": "Sell",
     "area": "5000 sq. ft.",
-    "location": "Los Angeles, California, United States",
+    "location": "Los Angeles, California.",
     "facilities": ["Swimming Pool", "Jacuzzi", "Gym", "Garden"]
   },
 
@@ -21,7 +21,7 @@
     "price": "$2,000/month",
     "status": "Rent",
     "area": "1200 sq. ft.",
-    "location": "New York City, New York, United States",
+    "location": "123 Street New York.",
     "facilities": ["Parking", "Security", "Gym", "Concierge"]
   },
 
@@ -34,7 +34,7 @@
     "price": "$800/month",
     "status": "Rent",
     "area": "600 sq. ft.",
-    "location": "Cambridge, Massachusetts, United States",
+    "location": "Cambridge, Massachusetts.",
     "facilities": [
       "Close to University",
       "Furnished",
@@ -52,7 +52,7 @@
     "price": "$300,000",
     "status": "Sell",
     "area": "1500 sq. ft.",
-    "location": "Scottsdale, Arizona, United States",
+    "location": "Scottsdale, Arizona.",
     "facilities": [
       "Swimming Pool",
       "Fitness Center",
@@ -70,7 +70,7 @@
     "price": "$300,000",
     "status": "Sell",
     "area": "2000 sq. ft.",
-    "location": "Cotswolds, United Kingdom",
+    "location": "231 Street, California",
     "facilities": ["Garden", "Fireplace", "Scenic Views", "Parking"]
   },
 
@@ -83,7 +83,7 @@
     "price": "$2,500/month",
     "status": "Rent",
     "area": "1800 sq. ft.",
-    "location": "Sydney, New South Wales, Australia",
+    "location": "Sydney, New South Wales.",
     "facilities": ["Roof Terrace", "Parking", "Gym", "Security"]
   }
 ]

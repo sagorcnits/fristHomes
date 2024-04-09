@@ -1,6 +1,9 @@
+import { IoCall, IoLocationSharp } from "react-icons/io5";
+import { MdEmail } from "react-icons/md";
+
 const Footer = () => {
   return (
-    <div className="mt-20 py-10 bg-neutral poppins-semibold text-[20px]">
+    <div className="mt-20 py-10 bg-neutral poppins-semibold text-[20px] px-4 md:px-0">
       <footer className="footer border-b py-8  max-w-6xl mx-auto text-neutral-content">
         <aside className="space-y-5">
           <a className="cursor-pointer text-[30px] font-bold poppins-bold hidden lg:flex">
@@ -13,10 +16,10 @@ const Footer = () => {
           </p>
         </aside>
         <nav className="md:justify-self-end">
-          <h6 className="pb-2 text-white text-[18px]">Services</h6>
-          <a className="link link-hover">RealState</a>
-          <a className="link link-hover">Rent Home</a>
-          <a className="link link-hover">Sell House</a>
+          <h6 className="pb-2 text-white text-[18px]">Company</h6>
+          <a className="link link-hover">About Us</a>
+          <a className="link link-hover">Contact Us</a>
+          <a className="link link-hover">Our Services</a>
         </nav>
         
         <nav className="md:justify-self-end">
@@ -27,10 +30,10 @@ const Footer = () => {
         </nav>
 
         <nav className="md:justify-self-end">
-          <h6 className="pb-2 text-white text-[18px]">Contact</h6>
-          <a className="link link-hover">FristHome</a>
-          <a className="link link-hover">no : (323)678-9004</a>
-          <a className="link link-hover">Email : fristhome@gmail.com</a>
+          <h6 className="pb-2 text-white text-[18px]">Get In Touch</h6>
+          <a className="link link-hover flex gap-2 items-center"><IoLocationSharp></IoLocationSharp> 123 Street, New York, USA</a>
+          <a className="link link-hover flex gap-2 items-center"><IoCall></IoCall> (323)678-9004</a>
+          <a className="link link-hover flex gap-2 items-center"><MdEmail></MdEmail> fristhome@gmail.com</a>
         </nav>
       </footer >
       <div className="max-w-6xl mx-auto pt-4 ">
