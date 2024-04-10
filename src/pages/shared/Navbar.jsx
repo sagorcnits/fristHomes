@@ -87,7 +87,9 @@ const Navbar = () => {
         <div className="w-[50px] h-[50px] rounded-full flex justify-center items-center cursor-pointer overflow-hidden">
           <img src={userImg} alt="user" />
         </div>
-        <a className="btn">Sign Up</a>
+        <NavLink to="/login">
+          <button className="btn">Log In</button>
+        </NavLink>
       </div>
     </div>
   );
