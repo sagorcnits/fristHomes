@@ -83,12 +83,14 @@ const Navbar = () => {
           </NavLink>
         </ul>
       </div>
-      <div className="navbar-end poppins-reguler gap-2">
-        <div className="w-[50px] h-[50px] rounded-full flex justify-center items-center cursor-pointer overflow-hidden">
-          <img src={userImg} alt="user" />
+      <div className="navbar-end poppins-reguler gap-2 relative">
+        <div className="tooltip tooltip-bottom" data-tip="sagor hossain">
+          <div className="w-[50px] h-[50px] rounded-full flex justify-center items-center cursor-pointer overflow-hidden">
+            <img src={userImg} alt="user" />
+          </div>
         </div>
-        <NavLink to="/login">
-          <button className="btn">Log In</button>
+        <NavLink to="/login" className="btn">
+          <button>Log In</button>
         </NavLink>
       </div>
     </div>

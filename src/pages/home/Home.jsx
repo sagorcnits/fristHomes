@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Card from "../../components/Card";
 import DealCard from "../../components/DealCard";
+import title from "../../utils/title";
 import ReviewSlider from "./ReviewSlider";
 import SliderSwip from "./SliderSwip";
 const Home = () => {
@@ -12,7 +13,7 @@ const Home = () => {
       .then((res) => res.json())
       .then((data) => setAllEstate(data));
   }, []);
-
+title("home")
   return (
     <main>
       <SliderSwip></SliderSwip>

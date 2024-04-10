@@ -1,6 +1,10 @@
+import title from "../../utils/title";
+
 const Contact = () => {
+
+  title("contact")
   return (
-    <div className="grid grid-cols-2 items-center">
+    <div className="grid md:grid-cols-2 items-center">
       <div>
         <img className="w-[90%]"
           src="https://img.freepik.com/free-vector/organic-flat-man-customer-support_23-2148893295.jpg?t=st=1712659462~exp=1712663062~hmac=1f3a65814f5eb4ec3f502ada341b06d98955535c3b2b88961ce68996badbfade&w=740"
