@@ -12,45 +12,45 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
-    errorElement:<NotFound></NotFound>,
-    children:[
-        {
-            path:'/',
-            element:<Home></Home>
-        },
+    errorElement: <NotFound></NotFound>,
+    children: [
+      {
+        path: "/",
+        element: <Home></Home>,
+      },
 
-        {
-            path:'/contact',
-            element:<Contact></Contact>
-        },
+      {
+        path: "/contact",
+        element: <Contact></Contact>,
+      },
 
-        {
-            path:'/update',
-            element:<UpdateProfile></UpdateProfile>
-        },
+      {
+        path: "/update",
+        element: <UpdateProfile></UpdateProfile>,
+      },
 
-        {
-          path:'/details/:id',
-          element:<Details></Details>,
-          loader:()=> fetch("./estate.json")
-        },
+      {
+        path: "/userprofile",
+        element: <h1>User PRofile</h1>,
+      },
 
-        {
-          path:"/login",
-          element:<Login></Login>
-        },
+      {
+        path: "/details/:id",
+        element: <Details></Details>,
+        loader: () => fetch("./estate.json"),
+      },
 
-        {
-          path:"/register",
-          element:<SignUp></SignUp>
-        }
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
 
-       
-    ]
+      {
+        path: "/register",
+        element: <SignUp></SignUp>,
+      },
+    ],
   },
-
-
-
 ]);
 
 export default router;

@@ -13,10 +13,12 @@ const Home = () => {
       .then((res) => res.json())
       .then((data) => setAllEstate(data));
   }, []);
-title("home")
+  title("home");
   return (
     <main>
-      <SliderSwip></SliderSwip>
+      <section className="mt-10">
+        <SliderSwip></SliderSwip>
+      </section>
       <section className="my-10">
         <h1 className="text-[30px] text-center  text-[#403F3F] poppins-bold">
           We Provide <br /> The Best Property

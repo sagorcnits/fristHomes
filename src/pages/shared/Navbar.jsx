@@ -55,7 +55,7 @@ const Navbar = () => {
           FristHomes
         </a>
       </div>
-      <div className="navbar-center hidden lg:flex">
+      <div className="navbar-center hidden  lg:flex">
         <ul className="menu menu-horizontal px-1 text-[18px] poppins-reguler">
           <NavLink
             to="/"
@@ -65,14 +65,7 @@ const Navbar = () => {
           >
             <li>Home</li>
           </NavLink>
-          <NavLink
-            to="/contact"
-            className={({ isActive, isPending }) =>
-              isPending ? "pending " : isActive ? "active btn-li" : "btn-li"
-            }
-          >
-            <li>Contact Us</li>
-          </NavLink>
+
           <NavLink
             to="/update"
             className={({ isActive, isPending }) =>
@@ -81,12 +74,31 @@ const Navbar = () => {
           >
             <li>Update Profile</li>
           </NavLink>
+          <NavLink
+            to="/userprofile"
+            className={({ isActive, isPending }) =>
+              isPending ? "pending " : isActive ? "active btn-li" : "btn-li"
+            }
+          >
+            <li>User Profile</li>
+          </NavLink>
+
+          <NavLink
+            to="/contact"
+            className={({ isActive, isPending }) =>
+              isPending ? "pending " : isActive ? "active btn-li" : "btn-li"
+            }
+          >
+            <li>Contact Us</li>
+          </NavLink>
         </ul>
       </div>
-      <div className="navbar-end poppins-reguler gap-2 relative">
+      <div className="navbar-end poppins-reguler gap-2  items-center">
         <div className="tooltip tooltip-bottom" data-tip="sagor hossain">
-          <div className="w-[50px] h-[50px] rounded-full flex justify-center items-center cursor-pointer overflow-hidden">
-            <img src={userImg} alt="user" />
+          <div className="avatar online">
+            <div className="w-[50px] h-[50px] rounded-full flex justify-center items-center cursor-pointer overflow-hidden">
+              <img src={userImg} />
+            </div>
           </div>
         </div>
         <NavLink to="/login" className="btn">
