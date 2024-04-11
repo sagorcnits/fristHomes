@@ -7,8 +7,7 @@ import { AuthContext } from "../../components/AuthProvider";
 import title from "../../utils/title";
 const SignUp = () => {
   const [eye, setEye] = useState("password");
-  const { user, createUser } = useContext(AuthContext);
-
+  const { createUser } = useContext(AuthContext);
 
   const {
     register,
@@ -18,19 +17,17 @@ const SignUp = () => {
   } = useForm();
 
   const Submit = (data) => {
-    // console.log(data, errors);
     createUser(data.email, data.password)
-    .then(res => {
+      .then((res) => {
         const user = res.user;
-        alert('sucsess')
-    })
-    .catch(error => {
-       console.log(error.message)
-    })
+        user.displayName = data.name;
+        user.photoURL = data.photoURL;
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
     reset();
   };
-
-  
 
   title("register");
 
@@ -49,7 +46,7 @@ const SignUp = () => {
               placeholder="Name"
               className="input input-bordered"
             />
-               {errors.name && <p>Please Give Me Name</p>}
+            {errors.name && <p>Please Give Me Name</p>}
           </div>
           <div className="form-control">
             <label className="label">
@@ -60,9 +57,8 @@ const SignUp = () => {
               type="email"
               placeholder="email"
               className="input input-bordered"
-             
             />
-               {errors.email && <p>Email Not Valid</p>}
+            {errors.email && <p>Email Not Valid</p>}
           </div>
           <div className="form-control">
             <label className="label">
@@ -73,9 +69,8 @@ const SignUp = () => {
               type="text"
               placeholder="Photo URL"
               className="input input-bordered"
-           
             />
-               {errors.photoURL && <p>Photo URL Not Valid</p>}
+            {errors.photoURL && <p>Photo URL Not Valid</p>}
           </div>
           <div className="form-control">
             <label className="label">
@@ -85,8 +80,7 @@ const SignUp = () => {
               <input
                 {...register("password", {
                   pattern: {
-                    value:/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])/,
-                    
+                    value: /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])/,
                   },
                   minLength: 6,
                 })}
@@ -94,7 +88,6 @@ const SignUp = () => {
                 type={eye}
                 placeholder="password"
                 className="input input-bordered w-full"
-              
               />
               {eye === "password" ? (
                 <FaEyeSlash

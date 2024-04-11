@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import userImg from "../../assets/user.png";
+import { AuthContext } from "../../components/AuthProvider";
 const Navbar = () => {
+  const { user ,logOutUser} = useContext(AuthContext);
+console.log(user)
   return (
     <div className="navbar my-6">
       <div className="navbar-start">
@@ -94,16 +97,23 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end poppins-reguler gap-2  items-center">
-        <div className="tooltip tooltip-bottom" data-tip="sagor hossain">
-          <div className="avatar online">
-            <div className="w-[50px] h-[50px] rounded-full flex justify-center items-center cursor-pointer overflow-hidden">
-              <img src={userImg} />
+        {user && (
+          <div className="tooltip tooltip-bottom" data-tip={user.displayName}>
+            <div className="avatar online">
+              <div className="w-[50px] h-[50px] rounded-full flex justify-center items-center cursor-pointer overflow-hidden">
+                <img src={user.photoURL} />
+              </div>
             </div>
           </div>
-        </div>
-        <NavLink to="/login" className="btn">
-          <button>Log In</button>
-        </NavLink>
+        )}
+
+        {user ? (
+          <button onClick={() => logOutUser()} className="btn">Log Out</button>
+        ) : (
+          <NavLink to="/login" className="btn">
+            <button>Log In</button>
+          </NavLink>
+        )}
       </div>
     </div>
   );

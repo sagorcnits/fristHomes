@@ -1,16 +1,39 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { useForm } from "react-hook-form";
 import { FaEyeSlash, FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { MdRemoveRedEye } from "react-icons/md";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../components/AuthProvider";
 import title from "../../utils/title";
 const Login = () => {
   const [eye, setEye] = useState("password");
+const {signInUser} = useContext(AuthContext);
+
+const navigate = useNavigate();
+
+const {
+  register,
+  handleSubmit,
+  formState: { errors },
+} = useForm()
+
+const submit = (data) => {
+  signInUser(data.email, data.password)
+  .then(res => {
+    const user = res.user;
+    navigate('/')
+  })
+  .catch(error => {
+     console.log(error.message)
+  })
+}
+
   title("login");
   return (
     <div className="md:hero-content flex-col lg:flex-row-reverse poppins-reguler">
       <div className="card shrink-0 w-full md:max-w-md shadow-2xl bg-base-100">
-        <form className="card-body">
+        <form className="card-body" onSubmit={handleSubmit(submit)}>
           <h1 className="poppins-semibold text-center text-[30px]">
             Log in to your account
           </h1>
@@ -22,8 +45,9 @@ const Login = () => {
               type="email"
               placeholder="email"
               className="input input-bordered"
-              required
+              {...register("email", {required:true})}
             />
+            {errors.email && <p className="text-red-500">Please Email Provide</p>}
           </div>
           <div className="form-control">
             <label className="label">
@@ -34,7 +58,7 @@ const Login = () => {
                 type={eye}
                 placeholder="password"
                 className="input input-bordered w-full"
-                required
+              {...register("password", {required : true})}
               />
               {eye === "password" ? (
                 <FaEyeSlash
@@ -48,6 +72,7 @@ const Login = () => {
                 ></MdRemoveRedEye>
               )}
             </div>
+            {errors.password && <p className="text-red-500">Wrong Password</p>}
 
             <div className="text-sm flex justify-between py-2">
               <label className="flex gap-4 items-center">
