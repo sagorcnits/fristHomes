@@ -1,5 +1,4 @@
 import { createBrowserRouter } from "react-router-dom";
-import UpdateProfile from "../assets/updateProfile/UpdateProfile";
 import Root from "../layout/Root";
 import Contact from "../pages/contact/Contact";
 import Details from "../pages/details/Details";
@@ -7,6 +6,7 @@ import Home from "../pages/home/Home";
 import Login from "../pages/login/Login";
 import NotFound from "../pages/notFound/NotFound";
 import SignUp from "../pages/signUp/SignUp";
+import Update from "../pages/updateProfile/Update";
 
 const router = createBrowserRouter([
   {
@@ -26,7 +26,7 @@ const router = createBrowserRouter([
 
       {
         path: "/update",
-        element: <UpdateProfile></UpdateProfile>,
+        element:<Update></Update>
       },
 
       {

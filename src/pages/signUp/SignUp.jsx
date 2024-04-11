@@ -1,51 +1,81 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { useForm } from "react-hook-form";
 import { FaEyeSlash } from "react-icons/fa";
 import { MdRemoveRedEye } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../components/AuthProvider";
 import title from "../../utils/title";
 const SignUp = () => {
   const [eye, setEye] = useState("password");
+  const { user, createUser } = useContext(AuthContext);
 
- 
-  title("register")
- 
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm();
+
+  const Submit = (data) => {
+    // console.log(data, errors);
+    createUser(data.email, data.password)
+    .then(res => {
+        const user = res.user;
+        alert('sucsess')
+    })
+    .catch(error => {
+       console.log(error.message)
+    })
+    reset();
+  };
+
+  
+
+  title("register");
+
   return (
     <div className="md:hero-content flex-col lg:flex-row-reverse poppins-reguler">
       <div className="card shrink-0 w-full md:max-w-md shadow-2xl bg-base-100">
-        <form className="card-body">
+        <form className="card-body" onSubmit={handleSubmit(Submit)}>
           <h1 className="poppins-semibold text-center text-[30px]">Register</h1>
           <div className="form-control">
             <label className="label">
               <span className="label-text">Name</span>
             </label>
             <input
+              {...register("name", { required: true })}
               type="text"
               placeholder="Name"
               className="input input-bordered"
-              required
             />
+               {errors.name && <p>Please Give Me Name</p>}
           </div>
           <div className="form-control">
             <label className="label">
               <span className="label-text">Email</span>
             </label>
             <input
+              {...register("email", { required: true })}
               type="email"
               placeholder="email"
               className="input input-bordered"
-              required
+             
             />
+               {errors.email && <p>Email Not Valid</p>}
           </div>
           <div className="form-control">
             <label className="label">
               <span className="label-text">Photo URL</span>
             </label>
             <input
+              {...register("photoURL", { required: true })}
               type="text"
               placeholder="Photo URL"
               className="input input-bordered"
-              required
+           
             />
+               {errors.photoURL && <p>Photo URL Not Valid</p>}
           </div>
           <div className="form-control">
             <label className="label">
@@ -53,10 +83,18 @@ const SignUp = () => {
             </label>
             <div className="flex justify-between items-center relative">
               <input
+                {...register("password", {
+                  pattern: {
+                    value:/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])/,
+                    
+                  },
+                  minLength: 6,
+                })}
+                area-invalid={errors.password ? "true" : "false"}
                 type={eye}
                 placeholder="password"
                 className="input input-bordered w-full"
-                required
+              
               />
               {eye === "password" ? (
                 <FaEyeSlash
@@ -70,6 +108,7 @@ const SignUp = () => {
                 ></MdRemoveRedEye>
               )}
             </div>
+            {errors.password && <p>Password Not a Valid</p>}
           </div>
           <div className="text-sm flex justify-between py-2">
             <label className="flex items-center gap-4">
