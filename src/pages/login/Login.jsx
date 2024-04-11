@@ -4,34 +4,61 @@ import { FaEyeSlash, FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { MdRemoveRedEye } from "react-icons/md";
 import { NavLink, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from "../../components/AuthProvider";
 import title from "../../utils/title";
 const Login = () => {
   const [eye, setEye] = useState("password");
-const {signInUser} = useContext(AuthContext);
+  const { signInUser, googleUser, githubUser } = useContext(AuthContext);
 
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
-const {
-  register,
-  handleSubmit,
-  formState: { errors },
-} = useForm()
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-const submit = (data) => {
-  signInUser(data.email, data.password)
-  .then(res => {
-    const user = res.user;
-    navigate('/')
-  })
-  .catch(error => {
-     console.log(error.message)
-  })
-}
+  const submit = (data) => {
+    signInUser(data.email, data.password)
+      .then((res) => {
+        const user = res.user;
+        navigate("/");
+       
+      })
+      .catch((error) => {
+        console.log(error.message);
+        toast.warn("Please Valid Email and Password")
+      });
+  };
+// google login
+  const googleLogIn = () => {
+    googleUser()
+      .then((res) => {
+        const user = res.user;
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+  // github login
+  const githubLogIn = () => {
+    githubUser()
+      .then((res) => {
+        const user = res.user;
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
 
   title("login");
   return (
     <div className="md:hero-content flex-col lg:flex-row-reverse poppins-reguler">
+      <ToastContainer></ToastContainer>
       <div className="card shrink-0 w-full md:max-w-md shadow-2xl bg-base-100">
         <form className="card-body" onSubmit={handleSubmit(submit)}>
           <h1 className="poppins-semibold text-center text-[30px]">
@@ -45,9 +72,11 @@ const submit = (data) => {
               type="email"
               placeholder="email"
               className="input input-bordered"
-              {...register("email", {required:true})}
+              {...register("email", { required: true })}
             />
-            {errors.email && <p className="text-red-500">Please Email Provide</p>}
+            {errors.email && (
+              <p className="text-red-500">Please Email Provide</p>
+            )}
           </div>
           <div className="form-control">
             <label className="label">
@@ -58,7 +87,7 @@ const submit = (data) => {
                 type={eye}
                 placeholder="password"
                 className="input input-bordered w-full"
-              {...register("password", {required : true})}
+                {...register("password", { required: true })}
               />
               {eye === "password" ? (
                 <FaEyeSlash
@@ -98,10 +127,10 @@ const submit = (data) => {
           </p>
           <div className="divider">Or continue with</div>
           <div className="flex justify-between  mx-auto gap-6">
-            <button className="px-8 py-2 border poppins-semibold rounded-md flex gap-2 items-center">
+            <button onClick={googleLogIn} className="px-8 py-2 border poppins-semibold rounded-md flex gap-2 items-center">
               <FcGoogle></FcGoogle> Google
             </button>
-            <button className="px-8 py-2 border poppins-semibold rounded-md flex gap-2 items-center">
+            <button onClick={githubLogIn} className="px-8 py-2 border poppins-semibold rounded-md flex gap-2 items-center">
               <FaGithub></FaGithub> Github
             </button>
           </div>
