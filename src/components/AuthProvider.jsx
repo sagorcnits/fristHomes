@@ -6,6 +6,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import { RouterProvider } from "react-router-dom";
@@ -14,38 +15,57 @@ import router from "../routes/Routes.jsx";
 export const AuthContext = createContext(null);
 const AuthProvider = () => {
   const [user, setUser] = useState([]);
+  const [loading, setLoading] = useState(true)
   // crateUser
   const createUser = (email, password) => {
+    setLoading(true)
     return createUserWithEmailAndPassword(auth, email, password);
   };
   // signUser
   const signInUser = (email, password) => {
+    setLoading(true)
     return signInWithEmailAndPassword(auth, email, password);
   };
   // logout user
   const logOutUser = () => {
+    setLoading(true)
   return  signOut(auth);
   };
   // google login user
   const googleUser = () => {
+    setLoading(true)
     return signInWithPopup(auth, new GoogleAuthProvider());
   };
   // github login user
   const githubUser = () => {
+    setLoading(true)
     return signInWithPopup(auth, new GithubAuthProvider);
   };
+// Update profile 
+const updateProfileUser = (name,photoURL) => {
+  setLoading(true)
+return updateProfile(auth.currentUser, {
+    displayName: name,
+    photoURL: photoURL,
+  })
+}
 
+
+// observer
   useEffect(() => {
     const onAuth = onAuthStateChanged(auth, (user) => {
-      //  console.log(user);
       setUser(user);
+      setLoading(false)
     });
     return () => {
       onAuth();
+     
     };
   }, []);
 
-  const authInfor = { user, createUser, signInUser, logOutUser, googleUser, githubUser };
+  
+
+  const authInfor = { user, createUser, signInUser, logOutUser, googleUser, githubUser ,updateProfileUser, loading };
 
   return (
     <AuthContext.Provider value={authInfor}>

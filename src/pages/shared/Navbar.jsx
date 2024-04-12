@@ -15,6 +15,7 @@ const Navbar = () => {
       });
   };
 
+  
   return (
     <div className="navbar my-6">
       <div className="navbar-start">
