@@ -81,7 +81,11 @@ const Navbar = () => {
             <li>Home</li>
           </NavLink>
 
-          <NavLink
+        { 
+        user  ? 
+        
+        <>
+        <NavLink
             to="/update"
             className={({ isActive, isPending }) =>
               isPending ? "pending " : isActive ? "active btn-li" : "btn-li"
@@ -97,6 +101,9 @@ const Navbar = () => {
           >
             <li>User Profile</li>
           </NavLink>
+        </> : ""
+          
+          }
 
           <NavLink
             to="/contact"

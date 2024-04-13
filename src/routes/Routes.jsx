@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import PrivateRoute from "../components/PrivateRoute";
 import Root from "../layout/Root";
 import Contact from "../pages/contact/Contact";
 import Details from "../pages/details/Details";
@@ -27,12 +28,12 @@ const router = createBrowserRouter([
 
       {
         path: "/update",
-        element:<Update></Update>
+        element: <PrivateRoute><Update></Update></PrivateRoute> 
       },
 
       {
         path: "/userprofile",
-        element: <UserProfile></UserProfile>,
+        element: <PrivateRoute><UserProfile></UserProfile></PrivateRoute>,
       },
 
       {
