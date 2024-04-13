@@ -7,6 +7,7 @@ import Login from "../pages/login/Login";
 import NotFound from "../pages/notFound/NotFound";
 import SignUp from "../pages/signUp/SignUp";
 import Update from "../pages/updateProfile/Update";
+import UserProfile from "../pages/userProfile/UserProfile";
 
 const router = createBrowserRouter([
   {
@@ -31,7 +32,7 @@ const router = createBrowserRouter([
 
       {
         path: "/userprofile",
-        element: <h1>User PRofile</h1>,
+        element: <UserProfile></UserProfile>,
       },
 
       {

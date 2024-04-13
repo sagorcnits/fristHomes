@@ -4,7 +4,7 @@ import { AuthContext } from "../../components/AuthProvider";
 import title from "../../utils/title";
 
 const Update = () => {
-  const { user, updateProfileUser, loading } = useContext(AuthContext);
+  const { user, updateProfileUser, loading ,setReload, reload} = useContext(AuthContext);
 
   const handleUpdate = (e) => {
     e.preventDefault();
@@ -16,15 +16,11 @@ const Update = () => {
       .then(() => {
         console.log("save Change");
         toast.success("Update your profile");
+        setReload(!reload)
       })
       .catch((error) => {
         console.log(error.message);
       });
-
-      
-        window.location.reload(false);
-      
-
   };
 
   title("update profile");

@@ -16,6 +16,7 @@ export const AuthContext = createContext(null);
 const AuthProvider = () => {
   const [user, setUser] = useState([]);
   const [loading, setLoading] = useState(true)
+  const [reload,setReload] = useState(false)
   // crateUser
   const createUser = (email, password) => {
     setLoading(true)
@@ -61,11 +62,11 @@ return updateProfile(auth.currentUser, {
       onAuth();
      
     };
-  }, []);
+  }, [reload]);
 
   
 
-  const authInfor = { user, createUser, signInUser, logOutUser, googleUser, githubUser ,updateProfileUser, loading };
+  const authInfor = { user, createUser, signInUser, logOutUser, googleUser, githubUser ,updateProfileUser, loading, setReload, reload };
 
   return (
     <AuthContext.Provider value={authInfor}>

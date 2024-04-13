@@ -9,7 +9,7 @@ import { AuthContext } from "../../components/AuthProvider";
 import title from "../../utils/title";
 const SignUp = () => {
   const [eye, setEye] = useState("password");
-  const { createUser, updateProfileUser } = useContext(AuthContext);
+  const { createUser, updateProfileUser,setReload } = useContext(AuthContext);
 
   const {
     register,
@@ -25,12 +25,11 @@ const SignUp = () => {
         updateProfileUser(data.name, data.photoURL)
           .then(() => {
             console.log("update profile");
+            setReload(true)
           })
           .catch((error) => {
             console.log(error.message);
           });
-        // user.displayName = data.name;
-        // user.photoURL = data.photoURL;
         toast.success("Complete Your Register");
       })
       .catch((error) => {
