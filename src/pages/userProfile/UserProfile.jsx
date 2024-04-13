@@ -1,14 +1,17 @@
-import { useContext } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../../components/AuthProvider";
-
 const UserProfile = () => {
 
-
+  useEffect(()=>{
+    AOS.init()
+  },[])
 const  {user} = useContext(AuthContext)
 
   return (
     <div className="grid grid-cols-4 gap-5">
-      <div className="border p-4 poppins-semibold">
+      <div className="border p-4 poppins-semibold" data-aos="fade-right" data-aos-duration="1000" >
         <div className="w-[90px] h-[90px] mx-auto rounded-full flex justify-center items-center cursor-pointer overflow-hidden mt-6">
           <img src={user.photoURL} />
         </div>
@@ -24,7 +27,7 @@ const  {user} = useContext(AuthContext)
         </div>
       </div>
 
-      <div className="col-span-3 border p-4">
+      <div className="col-span-3 border p-4"  data-aos="fade-left" data-aos-duration="1000" >
         <h1 className="text-[30px] poppins-semibold">Your Profile</h1>
         <p className="poppins-semibold py-2">name</p>
         <div className="border p-2 rounded-md bg-[rgba(241,238,238,0.6)]">

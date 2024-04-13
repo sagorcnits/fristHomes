@@ -1,11 +1,13 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import title from "../../utils/title";
 
 const Details = () => {
-  const data = useLoaderData();
-  const detailId = useParams();
-  const detailEstate = data.find((estate) => estate.id === +detailId.id);
-title("estate details")
+
+const data = useLocation().state;
+const location = useLocation();
+const  detailId  = location.pathname.replace("/details/",  "")
+const detailEstate = data.find((estate) => estate.id === +detailId);
+  title("estate details");
   return (
     <div className="grid md:grid-cols-2 gap-8 my-16">
       <div className="overflow-hidden rounded-md h-[400px] md:h-full">
@@ -62,3 +64,4 @@ title("estate details")
 };
 
 export default Details;
+

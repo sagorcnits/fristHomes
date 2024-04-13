@@ -1,3 +1,5 @@
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Card from "../../components/Card";
@@ -12,6 +14,7 @@ const Home = () => {
     fetch("./estate.json")
       .then((res) => res.json())
       .then((data) => setAllEstate(data));
+    AOS.init();
   }, []);
   title("home");
   return (
@@ -20,34 +23,54 @@ const Home = () => {
         <SliderSwip></SliderSwip>
       </section>
       <section className="my-10">
-        <h1 className="text-[30px] text-center  text-[#403F3F] poppins-bold">
+        <h1
+          data-aos-duration="1000"
+          data-aos="fade-left"
+          className="text-[30px] text-center  text-[#403F3F] poppins-bold"
+        >
           We Provide <br /> The Best Property
         </h1>
         <div className="border-b border-dashed pb-6 ">
           <div className="my-8 grid md:grid-cols-3 gap-6">
             {allEstate.map((estate, id) => (
-              <Link key={id} to={`/details/${estate.id}`}>
+              <Link key={id} to={`/details/${estate.id}`} state={allEstate}>
                 <Card estate={estate}></Card>
               </Link>
             ))}
           </div>
           <div className="text-center">
-            <button className="px-6 py-2 border poppins-semibold bg-transparent rounded-md hover:bg-[#28b463] duration-500 hover:text-white">
+            <button
+              data-aos-duration="1000"
+              data-aos="fade-right"
+              className="px-6 py-2 border poppins-semibold bg-transparent rounded-md hover:bg-[#28b463] duration-500 hover:text-white"
+            >
               More Property
             </button>
           </div>
         </div>
       </section>
       <section className="my-8">
-        <h1 className="text-center poppins-bold text-[30px]  text-[#403F3F]">
+        <h1
+          data-aos-duration="1000"
+          data-aos="fade-left"
+          className="text-center poppins-bold text-[30px]  text-[#403F3F]"
+        >
           Best Deal Right Now!
         </h1>
-        <p className="py-4 text-center poppins-reguler text-[18px] text-[#403F3F]">
+        <p
+          data-aos="fade-right"
+          data-aos-duration="1000"
+          className="py-4 text-center poppins-reguler text-[18px] text-[#403F3F]"
+        >
           When you need free CSS templates, <br /> you can simply type
           TemplateMo in any search
         </p>
         <div className="grid md:grid-cols-3 gap-6 my-8 ">
-          <div className=" col-span-2 rounded-md overflow-hidden relative">
+          <div
+            data-aos-duration="1000"
+            data-aos="fade-right"
+            className=" col-span-2 rounded-md overflow-hidden relative"
+          >
             <img
               className="h-full w-full"
               src="https://cdn.pixabay.com/photo/2017/09/09/18/25/living-room-2732939_1280.jpg"
@@ -57,21 +80,33 @@ const Home = () => {
               For Sell
             </button>
           </div>
-          <div className="border shadow-md rounded-md  p-4">
+          <div
+            data-aos="fade-left"
+            data-aos-duration="1000"
+            className="border shadow-md rounded-md  p-4"
+          >
             <DealCard></DealCard>
           </div>
         </div>
       </section>
       <section className="my-20">
-        <h1 className="text-center text-[30px] text-[#403F3F] poppins-bold">
+        <h1
+          data-aos-duration="1000"
+          data-aos="fade-right"
+          className="text-center text-[30px] text-[#403F3F] poppins-bold"
+        >
           Our Clients Say!
         </h1>
-        <p className="text-center text-[#3a3939] poppins-reguler py-4">
+        <p
+          data-aos-duration="1000"
+          data-aos="fade-left"
+          className="text-center text-[#3a3939] poppins-reguler py-4"
+        >
           Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore
           lorem kasd <br /> vero ipsum sit eirmod sit. Ipsum diam justo sed
           rebum vero dolor duo.
         </p>
-        <div className="my-8">
+        <div className="my-8"  data-aos-duration="1000"    data-aos="fade-up">
           <ReviewSlider></ReviewSlider>
         </div>
       </section>

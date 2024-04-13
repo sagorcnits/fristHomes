@@ -1,18 +1,24 @@
-import { useContext, useState } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaEyeSlash, FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { MdRemoveRedEye } from "react-icons/md";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from "../../components/AuthProvider";
 import title from "../../utils/title";
 const Login = () => {
   const [eye, setEye] = useState("password");
-  const { signInUser, googleUser, githubUser } = useContext(AuthContext);
-
+  const { signInUser, googleUser, githubUser } = useContext(AuthContext)
   const navigate = useNavigate();
+  const location = useLocation()
+console.log(location)
+  useEffect(()=>{
+    AOS.init()
+  },[])
 
   const {
     register,
@@ -24,7 +30,7 @@ const Login = () => {
     signInUser(data.email, data.password)
       .then((res) => {
         const user = res.user;
-        navigate("/");
+        navigate(location.state ? location.state : "/");
        
       })
       .catch((error) => {
@@ -57,7 +63,7 @@ const Login = () => {
 
   title("login");
   return (
-    <div className="md:hero-content flex-col lg:flex-row-reverse poppins-reguler">
+    <div className="md:hero-content flex-col lg:flex-row-reverse poppins-reguler"  data-aos="zoom-in" data-aos-duration="1000">
       <ToastContainer></ToastContainer>
       <div className="card shrink-0 w-full md:max-w-md shadow-2xl bg-base-100">
         <form className="card-body" onSubmit={handleSubmit(submit)}>

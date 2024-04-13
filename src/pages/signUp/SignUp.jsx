@@ -1,4 +1,6 @@
-import { useContext, useState } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaEyeSlash } from "react-icons/fa";
 import { MdRemoveRedEye } from "react-icons/md";
@@ -39,10 +41,14 @@ const SignUp = () => {
     reset();
   };
 
+  useEffect(()=>{
+    AOS.init()
+  },[])
+
   title("register");
 
   return (
-    <div className="md:hero-content flex-col lg:flex-row-reverse poppins-reguler">
+    <div className="md:hero-content flex-col lg:flex-row-reverse poppins-reguler" data-aos="zoom-in" data-aos-duration="1000">
       <ToastContainer />
       <div className="card shrink-0 w-full md:max-w-md shadow-2xl bg-base-100">
         <form className="card-body" onSubmit={handleSubmit(Submit)}>

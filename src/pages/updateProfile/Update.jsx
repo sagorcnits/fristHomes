@@ -1,4 +1,6 @@
-import { useContext } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useContext, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { AuthContext } from "../../components/AuthProvider";
 import title from "../../utils/title";
@@ -14,7 +16,7 @@ const Update = () => {
     const photoURL = formData.get("photoURL");
     updateProfileUser(name, photoURL)
       .then(() => {
-        console.log("save Change");
+        // console.log("save Change");
         toast.success("Update your profile");
         setReload(!reload)
       })
@@ -23,10 +25,14 @@ const Update = () => {
       });
   };
 
+  useEffect(()=>{
+    AOS.init()
+  },[])
+
   title("update profile");
   return (
     <>
-      <div className="md:hero-content flex-col lg:flex-row-reverse poppins-reguler">
+      <div className="md:hero-content flex-col lg:flex-row-reverse poppins-reguler" data-aos="zoom-in" data-aos-duration="1000" >
         <ToastContainer></ToastContainer>
         <div className="card shrink-0 w-full md:max-w-md shadow-2xl bg-base-100">
           <form className="card-body" onSubmit={handleUpdate}>
@@ -39,7 +45,7 @@ const Update = () => {
               </label>
               <input
                 type="text"
-                defaultValue={user.displayName}
+                defaultValue={user.displayName || ""}
                 className="input input-bordered"
                 name="name"
               />
@@ -50,7 +56,7 @@ const Update = () => {
               </label>
               <input
                 type="email"
-                defaultValue={user.email}
+                defaultValue={user.email || ""}
                 className="input input-bordered "
                 name="email"
               />
@@ -61,7 +67,7 @@ const Update = () => {
               </label>
               <input
                 type="text"
-                defaultValue={user.photoURL}
+                defaultValue={user.photoURL || ""}
                 className="input input-bordered"
                 name="photoURL"
               />
