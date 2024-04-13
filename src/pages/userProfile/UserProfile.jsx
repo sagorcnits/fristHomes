@@ -33,24 +33,20 @@ const  {user} = useContext(AuthContext)
         <div className="border p-2 rounded-md bg-[rgba(241,238,238,0.6)]">
         {user.displayName}
         </div>
-        <p className="poppins-reguler py-2">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis,
-          earum laudantium totam ea voluptate atque ducimus facilis eum a iure
-        </p>
-        <p className="poppins-semibold py-2">Email</p>
-        <div className="border p-2 rounded-md bg-[rgba(241,238,238,0.6)]">
+        {/* <p className="poppins-reguler py-2">
+        I am a Frontend Developer. I can develop any website using React JS. 
+        </p> */}
+        <p className="poppins-semibold mt-6">Email</p>
+        <div className="border p-2 mt-4 rounded-md bg-[rgba(241,238,238,0.6)]">
           sagor.cnits@gmail.com
         </div>
-        <p className="poppins-semibold mt-4">Bio</p>
-        <div className="border  bg-[rgba(241,238,238,0.6)] p-4 my-2 leading-[27px] rounded-md">
+        <p className="poppins-semibold mt-8">Bio</p>
+        <div className="border  bg-[rgba(241,238,238,0.6)] p-4 mt-4 leading-[27px] rounded-md">
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut ad,
-            laborum omnis provident sapiente perspiciatis voluptatem
-            voluptatibus, corporis incidunt ab obcaecati quasi est nemo itaque
-            eveniet labore deleniti quaerat. Quaerat.
+          We take pride in our commitment to excellence, whether it's through our rigorous quality control processes, our ongoing investment in research and development, or our unwavering dedication to customer service. Our goal is not only to meet but to exceed the needs of our clients, helping them succeed in today's competitive marketplace.
           </p>
         </div>
-        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+       
       </div>
     </div>
   );

@@ -7,12 +7,12 @@ const Footer = () => {
       <footer className="footer border-b py-8  max-w-6xl mx-auto text-neutral-content">
         <aside className="space-y-5">
           <a className="cursor-pointer text-[30px] font-bold poppins-bold hidden lg:flex">
-            FristHomes
+            Frist<span className="text-orange-500">Homes</span>
           </a>
           <p>
-            ACME Industries Ltd.
+            Realstate Industries Ltd.
             <br />
-            Providing reliable tech since 1992
+            Providing Home Service  From 1992
           </p>
         </aside>
         <nav className="md:justify-self-end">
@@ -33,7 +33,7 @@ const Footer = () => {
           <h6 className="pb-2 text-white text-[18px]">Get In Touch</h6>
           <a className="link link-hover flex gap-2 items-center"><IoLocationSharp></IoLocationSharp> 123 Street, New York, USA</a>
           <a className="link link-hover flex gap-2 items-center"><IoCall></IoCall> (323)678-9004</a>
-          <a className="link link-hover flex gap-2 items-center"><MdEmail></MdEmail> fristhome@gmail.com</a>
+          <a className="link link-hover flex gap-2 items-center"><MdEmail></MdEmail> fristhomes@gmail.com</a>
         </nav>
       </footer >
       <div className="max-w-6xl mx-auto pt-4 ">

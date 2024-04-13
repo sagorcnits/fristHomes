@@ -26,10 +26,9 @@ const DealCard = () => {
         <span className="poppins-bold">Bank</span>
       </div>
       <p className="py-2">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, do eiusmod
-        tempor pack incididunt ut labore et dolor...
+      today best deal right now and more details know of the homes...
       </p>
-      <button className="btn">More Details</button>
+      <button className="btn mt-6">More Details</button>
     </>
   );
 };

@@ -67,7 +67,7 @@ const Navbar = () => {
           </ul>
         </div>
         <a className=" cursor-pointer text-[30px] font-bold poppins-bold hidden lg:flex">
-          FristHomes
+        Frist<span className="text-orange-500">Homes</span>
         </a>
       </div>
       <div className="navbar-center hidden  lg:flex">

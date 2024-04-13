@@ -62,8 +62,7 @@ const Home = () => {
           data-aos-duration="1000"
           className="py-4 text-center poppins-reguler text-[18px] text-[#403F3F]"
         >
-          When you need free CSS templates, <br /> you can simply type
-          TemplateMo in any search
+          This is today The offer can be yours Dream Homes are so make a deal.
         </p>
         <div className="grid md:grid-cols-3 gap-6 my-8 ">
           <div
@@ -100,13 +99,11 @@ const Home = () => {
         <p
           data-aos-duration="1000"
           data-aos="fade-left"
-          className="text-center text-[#3a3939] poppins-reguler py-4"
+          className="text-center text-[#3a3939] poppins-reguler text-[18px] py-4"
         >
-          Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore
-          lorem kasd <br /> vero ipsum sit eirmod sit. Ipsum diam justo sed
-          rebum vero dolor duo.
+         Here are some of my client's reviewsHere are some of my client's reviews.
         </p>
-        <div className="my-8"  data-aos-duration="1000"    data-aos="fade-up">
+        <div className="my-8" data-aos-duration="1000" data-aos="fade-up">
           <ReviewSlider></ReviewSlider>
         </div>
       </section>

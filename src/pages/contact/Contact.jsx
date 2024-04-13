@@ -18,10 +18,7 @@ const Contact = () => {
     <div>
       <h1  data-aos="fade-right" data-aos-duration="1000" className="text-center poppins-bold py-4 text-[40px] text-[#403F3F]">Contact Us</h1>
       <p data-aos="fade-left" data-aos-duration="1000" className="text-center text-[18px] poppins-reguler ">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
-        praesentium corporis quod, eveniet possimus laborum veniam obcaecati
-        adipisci fuga sequi sapiente expedita dolor odio voluptatum ratione
-        officiis, unde qui non!
+      Follow the details below to contact us and use the form to send a message
       </p>
 
       <div className="grid md:grid-cols-3 gap-10 my-20">
