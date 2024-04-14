@@ -15,7 +15,6 @@ const Navbar = () => {
       });
   };
 
-  
   return (
     <div className="navbar my-6">
       <div className="navbar-start">
@@ -48,26 +47,50 @@ const Navbar = () => {
             >
               <li>Home</li>
             </NavLink>
+
+            {user ? (
+              <>
+                <NavLink
+                  to="/update"
+                  className={({ isActive, isPending }) =>
+                    isPending
+                      ? "pending "
+                      : isActive
+                      ? "active btn-li"
+                      : "btn-li"
+                  }
+                >
+                  <li>Update Profile</li>
+                </NavLink>
+                <NavLink
+                  to="/userprofile"
+                  className={({ isActive, isPending }) =>
+                    isPending
+                      ? "pending "
+                      : isActive
+                      ? "active btn-li"
+                      : "btn-li"
+                  }
+                >
+                  <li>User Profile</li>
+                </NavLink>
+              </>
+            ) : (
+              ""
+            )}
+
             <NavLink
               to="/contact"
               className={({ isActive, isPending }) =>
                 isPending ? "pending " : isActive ? "active btn-li" : "btn-li"
               }
             >
-              <li>About</li>
-            </NavLink>
-            <NavLink
-              to="/update"
-              className={({ isActive, isPending }) =>
-                isPending ? "pending " : isActive ? "active btn-li" : "btn-li"
-              }
-            >
-              <li>Update Profile</li>
+              <li>Contact Us</li>
             </NavLink>
           </ul>
         </div>
         <a className=" cursor-pointer text-[30px] font-bold poppins-bold hidden lg:flex">
-        Frist<span className="text-orange-500">Homes</span>
+          Frist<span className="text-orange-500">Homes</span>
         </a>
       </div>
       <div className="navbar-center hidden  lg:flex">
@@ -81,29 +104,28 @@ const Navbar = () => {
             <li>Home</li>
           </NavLink>
 
-        { 
-        user  ? 
-        
-        <>
-        <NavLink
-            to="/update"
-            className={({ isActive, isPending }) =>
-              isPending ? "pending " : isActive ? "active btn-li" : "btn-li"
-            }
-          >
-            <li>Update Profile</li>
-          </NavLink>
-          <NavLink
-            to="/userprofile"
-            className={({ isActive, isPending }) =>
-              isPending ? "pending " : isActive ? "active btn-li" : "btn-li"
-            }
-          >
-            <li>User Profile</li>
-          </NavLink>
-        </> : ""
-          
-          }
+          {user ? (
+            <>
+              <NavLink
+                to="/update"
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending " : isActive ? "active btn-li" : "btn-li"
+                }
+              >
+                <li>Update Profile</li>
+              </NavLink>
+              <NavLink
+                to="/userprofile"
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending " : isActive ? "active btn-li" : "btn-li"
+                }
+              >
+                <li>User Profile</li>
+              </NavLink>
+            </>
+          ) : (
+            ""
+          )}
 
           <NavLink
             to="/contact"

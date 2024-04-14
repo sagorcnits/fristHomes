@@ -31,7 +31,7 @@ const Home = () => {
           We Provide <br /> The Best Property
         </h1>
         <div className="border-b border-dashed pb-6 ">
-          <div className="my-8 grid md:grid-cols-3 gap-6">
+          <div className="my-8 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {allEstate.map((estate, id) => (
               <Link key={id} to={`/details/${estate.id}`} state={allEstate}>
                 <Card estate={estate}></Card>
@@ -68,7 +68,7 @@ const Home = () => {
           <div
             data-aos-duration="1000"
             data-aos="fade-right"
-            className=" col-span-2 rounded-md overflow-hidden relative"
+            className=" md:col-span-2 rounded-md overflow-hidden relative"
           >
             <img
               className="h-full w-full"

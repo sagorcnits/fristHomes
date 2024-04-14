@@ -6,7 +6,7 @@ const Footer = () => {
     <div className="mt-20 py-10 bg-neutral poppins-semibold text-[20px] px-4 md:px-0">
       <footer className="footer border-b py-8  max-w-6xl mx-auto text-neutral-content">
         <aside className="space-y-5">
-          <a className="cursor-pointer text-[30px] font-bold poppins-bold hidden lg:flex">
+          <a className="cursor-pointer text-[30px] font-bold poppins-bold hidden md:flex">
             Frist<span className="text-orange-500">Homes</span>
           </a>
           <p>

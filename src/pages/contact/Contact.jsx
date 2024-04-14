@@ -40,7 +40,7 @@ const Contact = () => {
           <AiTwotoneMail className="text-[40px] text-[#28b463] "></AiTwotoneMail>
           <div>
             <h1 className="poppins-semibold text-[22px]">Mail</h1>
-            <p>FrisHomes@gmail.com</p>
+            <p>fristhomes@gmail.com</p>
           </div>
         </div>
       </div>

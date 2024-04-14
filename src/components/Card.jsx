@@ -21,7 +21,7 @@ useEffect(()=>{
 },[])
 
   return (
-    <div className="card shadow-card duration-500  p-4" data-aos="fade-up" data-aos-duration="1000"   >
+    <div className="card shadow-card duration-500 h-[550px]  p-4" data-aos="fade-up" data-aos-duration="1000"   >
       <figure className="h-[170px] rounded-md overflow-hidden relative">
         <img className="hover:scale-[1.2] duration-500" src={estate_img} alt={segment_name} />
         <button className="cursor-default px-5 py-2  bg-[#D35400] absolute top-4 left-4 text-white poppins-semibold rounded-md">
@@ -47,7 +47,7 @@ useEffect(()=>{
             {description.slice(0, 70)}...
           </p>
         </div>
-        <div className=" flex justify-center items-center">
+        <div className="flex justify-center items-center">
           <button className="btn poppins-semibold">View Property</button>
         </div>
       </div>

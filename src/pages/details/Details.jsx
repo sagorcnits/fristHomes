@@ -9,8 +9,8 @@ const  detailId  = location.pathname.replace("/details/",  "")
 const detailEstate = data.find((estate) => estate.id === +detailId);
   title("estate details");
   return (
-    <div className="grid md:grid-cols-2 gap-8 my-16">
-      <div className="overflow-hidden rounded-md h-[400px] md:h-full">
+    <div className="grid lg:grid-cols-2 gap-8 my-16">
+      <div className="overflow-hidden rounded-md h-[400px] lg:h-full">
         <div
           className="bg-cover bg-[center_100%] w-full h-full duration-500  hover:scale-[1.2] bg-no-repeat"
           style={{ backgroundImage: `url(${detailEstate.estate_img})` }}
