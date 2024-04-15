@@ -1,8 +1,21 @@
-# React + Vite
+Website Name - FristHomes
+Website Live URL - https://fristhomes-ca394.web.app
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- Five bullet points features of the Website
 
-Currently, two official plugins are available:
+1 - Home page
+2 - Details page of each property
+3 - Update profile page
+4 - User profile page
+5 - Authentication like - login, register, google login, github login and private route.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Some characteristics of the website
+
+* The website is a Realstate based Homes can be bought and rented on the website.
+  It is a very useful site for students, single families etc.
+
+- using npm package
+
+1 - AOS Animation
+2 - React Hook Form
+3 - Swiper slider

@@ -7,6 +7,7 @@ import DealCard from "../../components/DealCard";
 import title from "../../utils/title";
 import ReviewSlider from "./ReviewSlider";
 import SliderSwip from "./SliderSwip";
+
 const Home = () => {
   const [allEstate, setAllEstate] = useState([]);
 
@@ -16,7 +17,9 @@ const Home = () => {
       .then((data) => setAllEstate(data));
     AOS.init();
   }, []);
+
   title("home");
+
   return (
     <main>
       <section className="mt-10">
@@ -64,11 +67,11 @@ const Home = () => {
         >
           This is today The offer can be yours Dream Homes are so make a deal.
         </p>
-        <div className="grid md:grid-cols-3 gap-6 my-8 ">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 my-8 ">
           <div
             data-aos-duration="1000"
             data-aos="fade-right"
-            className=" md:col-span-2 rounded-md overflow-hidden relative"
+            className=" md:col-span-1 lg:col-span-2 rounded-md overflow-hidden relative"
           >
             <img
               className="h-full w-full"
@@ -101,7 +104,8 @@ const Home = () => {
           data-aos="fade-left"
           className="text-center text-[#3a3939] poppins-reguler text-[18px] py-4"
         >
-         Here are some of my client's reviewsHere are some of my client's reviews.
+          Here are some of my client's reviewsHere are some of my client's
+          reviews.
         </p>
         <div className="my-8" data-aos-duration="1000" data-aos="fade-up">
           <ReviewSlider></ReviewSlider>

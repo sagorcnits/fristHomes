@@ -1,12 +1,14 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
+
+// console.log(import.meta.env.VITE_APIKEY);
 const firebaseConfig = {
-  apiKey: "AIzaSyCvDBcf6JfVsJOLYWn4qPUW0Ejf_ajVzeg",
-  authDomain: "fristhomes-ca394.firebaseapp.com",
-  projectId: "fristhomes-ca394",
-  storageBucket: "fristhomes-ca394.appspot.com",
-  messagingSenderId: "211863506237",
-  appId: "1:211863506237:web:871f2fdae014c633050954",
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID,
 };
 
 const app = initializeApp(firebaseConfig);

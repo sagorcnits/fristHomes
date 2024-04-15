@@ -4,7 +4,7 @@ function title(value) {
   let titleValue = value;
 
   useEffect(() => {
-    document.title = `FristHome - ${titleValue}`;
+    document.title = `FristHomes - ${titleValue}`;
   }, [titleValue]);
 }
 

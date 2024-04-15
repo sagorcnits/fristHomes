@@ -6,19 +6,20 @@ import { FaEyeSlash, FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { MdRemoveRedEye } from "react-icons/md";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../../components/AuthProvider";
 import title from "../../utils/title";
+
 const Login = () => {
   const [eye, setEye] = useState("password");
-  const { signInUser, googleUser, githubUser } = useContext(AuthContext)
+  const { signInUser, googleUser, githubUser } = useContext(AuthContext);
   const navigate = useNavigate();
-  const location = useLocation()
-console.log(location)
-  useEffect(()=>{
-    AOS.init()
-  },[])
+  const location = useLocation();
+  // console.log(location)
+  useEffect(() => {
+    AOS.init();
+  }, []);
 
   const {
     register,
@@ -30,15 +31,15 @@ console.log(location)
     signInUser(data.email, data.password)
       .then((res) => {
         const user = res.user;
+        // toast.success("Success Your Login Wow!");
         navigate(location.state ? location.state : "/");
-       
       })
       .catch((error) => {
         console.log(error.message);
-        toast.warn("Please Valid Email and Password")
+        toast.warn("Please Valid Email and Password");
       });
   };
-// google login
+  // google login
   const googleLogIn = () => {
     googleUser()
       .then((res) => {
@@ -63,7 +64,11 @@ console.log(location)
 
   title("login");
   return (
-    <div className="md:hero-content flex-col lg:flex-row-reverse poppins-reguler"  data-aos="zoom-in" data-aos-duration="1000">
+    <div
+      className="md:hero-content flex-col lg:flex-row-reverse poppins-reguler"
+      data-aos="zoom-in"
+      data-aos-duration="1000"
+    >
       <ToastContainer></ToastContainer>
       <div className="card shrink-0 w-full md:max-w-md shadow-2xl bg-base-100">
         <form className="card-body" onSubmit={handleSubmit(submit)}>
@@ -133,10 +138,16 @@ console.log(location)
           </p>
           <div className="divider">Or continue with</div>
           <div className="flex justify-between  mx-auto gap-6">
-            <button onClick={googleLogIn} className="px-8 py-2 border poppins-semibold rounded-md flex gap-2 items-center">
+            <button
+              onClick={googleLogIn}
+              className="px-8 py-2 border poppins-semibold rounded-md flex gap-2 items-center"
+            >
               <FcGoogle></FcGoogle> Google
             </button>
-            <button onClick={githubLogIn} className="px-8 py-2 border poppins-semibold rounded-md flex gap-2 items-center">
+            <button
+              onClick={githubLogIn}
+              className="px-8 py-2 border poppins-semibold rounded-md flex gap-2 items-center"
+            >
               <FaGithub></FaGithub> Github
             </button>
           </div>

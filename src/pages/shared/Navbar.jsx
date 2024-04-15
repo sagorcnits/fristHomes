@@ -48,20 +48,16 @@ const Navbar = () => {
               <li>Home</li>
             </NavLink>
 
-            {user ? (
+            <NavLink
+              to="/update"
+              className={({ isActive, isPending }) =>
+                isPending ? "pending " : isActive ? "active btn-li" : "btn-li"
+              }
+            >
+              <li>Update Profile</li>
+            </NavLink>
+            {user && (
               <>
-                <NavLink
-                  to="/update"
-                  className={({ isActive, isPending }) =>
-                    isPending
-                      ? "pending "
-                      : isActive
-                      ? "active btn-li"
-                      : "btn-li"
-                  }
-                >
-                  <li>Update Profile</li>
-                </NavLink>
                 <NavLink
                   to="/userprofile"
                   className={({ isActive, isPending }) =>
@@ -74,9 +70,8 @@ const Navbar = () => {
                 >
                   <li>User Profile</li>
                 </NavLink>
+             
               </>
-            ) : (
-              ""
             )}
 
             <NavLink
@@ -103,28 +98,29 @@ const Navbar = () => {
           >
             <li>Home</li>
           </NavLink>
-
-          {user ? (
+          <NavLink
+            to="/update"
+            className={({ isActive, isPending }) =>
+              isPending ? "pending " : isActive ? "active btn-li" : "btn-li"
+            }
+          >
+            <li>Update Profile</li>
+          </NavLink>
+          {user && (
             <>
-              <NavLink
-                to="/update"
-                className={({ isActive, isPending }) =>
-                  isPending ? "pending " : isActive ? "active btn-li" : "btn-li"
-                }
-              >
-                <li>Update Profile</li>
-              </NavLink>
-              <NavLink
-                to="/userprofile"
-                className={({ isActive, isPending }) =>
-                  isPending ? "pending " : isActive ? "active btn-li" : "btn-li"
-                }
-              >
-                <li>User Profile</li>
-              </NavLink>
-            </>
-          ) : (
-            ""
+            <NavLink
+              to="/userprofile"
+              className={({ isActive, isPending }) =>
+                isPending
+                  ? "pending "
+                  : isActive
+                  ? "active btn-li"
+                  : "btn-li"
+              }
+            >
+              <li>User Profile</li>
+            </NavLink>    
+          </>
           )}
 
           <NavLink
