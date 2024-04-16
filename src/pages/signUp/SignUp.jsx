@@ -26,7 +26,7 @@ const SignUp = () => {
         const user = res.user;
         updateProfileUser(data.name, data.photoURL)
           .then(() => {
-            console.log("update profile");
+            // console.log("update profile");
             setReload(true)
           })
           .catch((error) => {
@@ -103,7 +103,7 @@ const SignUp = () => {
               <input
                 {...register("password", {
                   pattern: {
-                    value: /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])/,
+                    value: /^(?=.*[a-z])(?=.*[A-Z])/,
                   },
                   minLength: 6,
                 })}

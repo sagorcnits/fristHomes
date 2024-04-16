@@ -9,6 +9,8 @@ const UserProfile = () => {
     AOS.init()
   },[])
 const  {user} = useContext(AuthContext)
+
+
 title("userProfile")
   return (
     <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-5">

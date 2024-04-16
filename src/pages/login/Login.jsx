@@ -13,7 +13,7 @@ import title from "../../utils/title";
 
 const Login = () => {
   const [eye, setEye] = useState("password");
-  const { signInUser, googleUser, githubUser } = useContext(AuthContext);
+  const { signInUser, googleUser, githubUser, setLoading } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   // console.log(location)
@@ -31,8 +31,11 @@ const Login = () => {
     signInUser(data.email, data.password)
       .then((res) => {
         const user = res.user;
-        // toast.success("Success Your Login Wow!");
-        navigate(location.state ? location.state : "/");
+        toast.success("Success Your Login Wow!");
+        setTimeout(()=>{
+          navigate(location.state ? location.state : "/");
+          setLoading(false)
+        },3000)
       })
       .catch((error) => {
         console.log(error.message);
@@ -44,6 +47,7 @@ const Login = () => {
     googleUser()
       .then((res) => {
         const user = res.user;
+        setLoading(false)
         navigate("/");
       })
       .catch((error) => {
@@ -55,6 +59,7 @@ const Login = () => {
     githubUser()
       .then((res) => {
         const user = res.user;
+        setLoading(false)
         navigate("/");
       })
       .catch((error) => {

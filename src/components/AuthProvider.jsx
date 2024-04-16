@@ -56,16 +56,16 @@ return updateProfile(auth.currentUser, {
     const onAuth = onAuthStateChanged(auth, (user) => {
       setUser(user);
       setLoading(false)
+      // console.log("call")
     });
     return () => {
       onAuth();
-     
     };
   }, [reload]);
 
   
 
-  const authInfor = { user, createUser, signInUser, logOutUser, googleUser, githubUser ,updateProfileUser, loading, setReload, reload };
+  const authInfor = { user, createUser, signInUser, logOutUser, googleUser, githubUser ,updateProfileUser, loading, setReload, reload, setLoading };
 
   return (
     <AuthContext.Provider value={authInfor}>
